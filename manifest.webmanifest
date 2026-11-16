@@ -1,0 +1,13 @@
+{
+  "name": "AutoType Rojak",
+  "short_name": "AutoType",
+  "description": "Cakap bahasa rojak, AI tulis dan kemaskan mesej untuk WhatsApp, Telegram dan lain-lain.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f0f2f5",
+  "theme_color": "#128c7e",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

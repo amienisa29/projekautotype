@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#128c7e">
+  <title>AutoType Rojak</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>AutoType Rojak</h1>
+    <button id="btnSettings" class="icon" aria-label="Tetapan">⚙️</button>
+  </header>
+
+  <main>
+    <section class="card">
+      <button id="btnMic" class="mic" aria-label="Mula rakam">🎤</button>
+      <p id="micStatus" class="hint">Tekan mic, cakap macam biasa.</p>
+
+      <label for="raw">Apa yang kau cakap / taip (boleh edit)</label>
+      <textarea id="raw" rows="4" placeholder="cth: weh aku dah on the way, nanti sampai aku call kau"></textarea>
+
+      <details>
+        <summary>Mesej yang kau nak reply (optional)</summary>
+        <textarea id="context" rows="3" placeholder="Paste mesej kawan kau kat sini supaya AI lagi faham konteks"></textarea>
+      </details>
+
+      <div class="styles" role="radiogroup" aria-label="Gaya ayat">
+        <label><input type="radio" name="style" value="santai" checked> Santai (rojak)</label>
+        <label><input type="radio" name="style" value="sopan"> Sopan / formal</label>
+        <label><input type="radio" name="style" value="melayu"> BM penuh</label>
+        <label><input type="radio" name="style" value="english"> English</label>
+      </div>
+
+      <button id="btnFix" class="primary">✨ Kemaskan</button>
+    </section>
+
+    <section class="card" id="resultCard" hidden>
+      <label for="result">Hasil (boleh edit sebelum hantar)</label>
+      <textarea id="result" rows="4"></textarea>
+      <div class="actions">
+        <button id="btnCopy">📋 Copy</button>
+        <button id="btnWa" class="wa">WhatsApp</button>
+        <button id="btnShare">📤 Share</button>
+      </div>
+    </section>
+
+    <p id="error" class="error" role="alert" hidden></p>
+  </main>
+
+  <dialog id="settings">
+    <form method="dialog">
+      <h2>Tetapan</h2>
+
+      <label for="anthropicKey">Claude API key (wajib)</label>
+      <input id="anthropicKey" type="password" autocomplete="off" placeholder="sk-ant-...">
+
+      <label for="sttMode">Cara tukar suara → teks</label>
+      <select id="sttMode">
+        <option value="browser">Chrome punya (free)</option>
+        <option value="whisper">OpenAI Whisper (lagi faham rojak, berbayar)</option>
+      </select>
+
+      <div id="browserOpts">
+        <label for="sttLang">Bahasa utama mic</label>
+        <select id="sttLang">
+          <option value="ms-MY">Bahasa Melayu</option>
+          <option value="en-US">English</option>
+        </select>
+      </div>
+
+      <div id="whisperOpts">
+        <label for="openaiKey">OpenAI API key</label>
+        <input id="openaiKey" type="password" autocomplete="off" placeholder="sk-...">
+      </div>
+
+      <label class="check"><input id="autoFix" type="checkbox" checked> Auto kemaskan lepas habis cakap</label>
+
+      <p class="hint">Key disimpan dalam phone kau je (browser), tak dihantar ke mana-mana selain Anthropic / OpenAI.</p>
+      <button class="primary" value="save">Simpan</button>
+    </form>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
