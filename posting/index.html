@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#5b4bdb">
+  <title>Tracker Posting</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Tracker Posting</h1>
+      <p id="today" class="sub"></p>
+    </div>
+    <button id="btnSettings" class="icon" aria-label="Tetapan">⚙️</button>
+  </header>
+
+  <main>
+    <section class="summary card">
+      <div class="big"><span id="doneTotal">0</span><small>/<span id="goalTotal">30</span></small></div>
+      <div class="bar"><div id="barFill"></div></div>
+      <p id="remainingText" class="remaining"></p>
+      <p id="nextText" class="next"></p>
+      <button id="btnNotify" class="ghost">🔔 Hidupkan peringatan</button>
+    </section>
+
+    <nav id="tabs" class="tabs" role="tablist"></nav>
+    <section id="slots" class="slots" aria-live="polite"></section>
+
+    <section class="card">
+      <h2>7 hari lepas</h2>
+      <div id="history"></div>
+    </section>
+  </main>
+
+  <dialog id="settings">
+    <form method="dialog">
+      <h2>Tetapan</h2>
+      <label>Nama account</label>
+      <input id="acc0" maxlength="30">
+      <input id="acc1" maxlength="30">
+      <input id="acc2" maxlength="30">
+
+      <label for="perDay">Berapa posting sehari (setiap account)</label>
+      <input id="perDay" type="number" min="1" max="30">
+
+      <div class="row">
+        <div>
+          <label for="startTime">Mula</label>
+          <input id="startTime" type="time">
+        </div>
+        <div>
+          <label for="endTime">Habis</label>
+          <input id="endTime" type="time">
+        </div>
+      </div>
+      <p class="hint">Masa posting dibahagi sama rata antara jam mula dan habis. Post yang dah tick tak hilang.</p>
+
+      <button class="primary" value="save">Simpan</button>
+      <button type="button" id="btnIcs" class="ghost full">📅 Download jadual ke Google Calendar</button>
+      <p class="hint">Peringatan dalam app ni hanya jalan bila app terbuka. Kalau nak peringatan walaupun app tertutup, import fail kalendar ni.</p>
+    </form>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

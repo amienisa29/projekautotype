@@ -28,3 +28,19 @@ Key disimpan dalam browser phone kau sahaja.
 - `index.html`, `style.css`, `app.js`: app utama
 - `vendor/anthropic-sdk.js`: Anthropic SDK (`@anthropic-ai/sdk@1.8.0`) yang di-bundle untuk browser
 - `sw.js`, `manifest.webmanifest`, `icon.svg`: supaya boleh install macam app
+
+---
+
+# Tracker Posting 📅 (folder `posting/`)
+
+App untuk jejak posting harian bagi 3 account: **Amin Isol**, **Darwish** dan **Amni**.
+
+- Setiap account ada **10 posting sehari**. Masa dibahagi sama rata dari 8:00 pagi sampai 10:00 malam. Masa setiap slot boleh ubah sendiri.
+- **Tick ✓** bila dah post. Kiraan "berapa lagi belum siap" dan "berapa dah lewat" dikemas kini terus.
+- **Peringatan 🔔** keluar bila sampai masa posting, untuk account yang belum post (masa app terbuka).
+- **Jadual Google Calendar 📅** (dalam ⚙️ Tetapan): peringatan tetap keluar walaupun app tertutup.
+- Hari baru, tick bermula semula dari kosong. Rekod 7 hari lepas ditunjuk di bawah.
+- Nama account, jumlah posting sehari, dan jam mula/habis boleh ubah dalam ⚙️.
+
+Link (lepas GitHub Pages hidup): `https://<username>.github.io/projekautotype/posting/`
+Buka link tu dalam Chrome, tekan ⋮ dan pilih **Add to Home screen**.

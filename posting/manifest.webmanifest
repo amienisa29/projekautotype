@@ -1,0 +1,13 @@
+{
+  "name": "Tracker Posting",
+  "short_name": "Posting",
+  "description": "Jadual dan tick posting harian untuk 3 account.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f3fb",
+  "theme_color": "#5b4bdb",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

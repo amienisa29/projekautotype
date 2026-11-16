@@ -1,0 +1,157 @@
+:root {
+  --bg: #f4f3fb;
+  --card: #ffffff;
+  --text: #17152b;
+  --muted: #6b6886;
+  --border: #dcd9ee;
+  --accent: #5b4bdb;
+  --ok: #1f9d55;
+  --late: #d64545;
+  --a0: #5b4bdb;
+  --a1: #e0782f;
+  --a2: #d6449a;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121120;
+    --card: #1d1b30;
+    --text: #ecebf7;
+    --muted: #a19fbd;
+    --border: #312e4d;
+    --ok: #3ccf7f;
+    --late: #ff7070;
+    --a0: #8b7dff;
+    --a1: #ff9d57;
+    --a2: #ff6fbf;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--accent);
+  color: #fff;
+}
+h1 { font-size: 1.15rem; margin: 0; }
+h2 { font-size: 1rem; margin: 0 0 10px; }
+.sub { margin: 0; opacity: .85; font-size: .85rem; }
+main { max-width: 560px; margin: 0 auto; padding: 16px; }
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08);
+}
+
+button {
+  font: inherit;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+button.icon { background: transparent; border: 0; font-size: 1.3rem; padding: 4px; }
+button.primary { width: 100%; margin-top: 14px; background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+button.ghost { background: transparent; }
+button.full { width: 100%; margin-top: 10px; }
+
+.summary { text-align: center; }
+.big { font-size: 2.6rem; font-weight: 700; line-height: 1; }
+.big small { font-size: 1.2rem; color: var(--muted); font-weight: 600; }
+.bar { height: 10px; background: var(--border); border-radius: 99px; overflow: hidden; margin: 12px 0; }
+#barFill { height: 100%; width: 0; background: var(--ok); transition: width .3s; }
+.remaining { margin: 0; font-weight: 600; }
+.next { margin: 4px 0 12px; color: var(--muted); font-size: .9rem; }
+
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+.tab {
+  padding: 10px 6px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: var(--card);
+  text-align: center;
+  line-height: 1.2;
+}
+.tab .name { display: block; font-weight: 600; font-size: .9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tab .count { font-size: .8rem; color: var(--muted); }
+.tab[aria-selected="true"] { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--card)); }
+.tab .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--acc); margin-right: 4px; }
+
+.slots { display: grid; gap: 8px; margin-bottom: 16px; }
+.slot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--acc);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+.slot .check {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: transparent;
+  font-size: 1.2rem;
+  padding: 0;
+  color: #fff;
+}
+.slot.done .check { background: var(--ok); border-color: var(--ok); }
+.slot .info { flex: 1; min-width: 0; }
+.slot .title { font-weight: 600; }
+.slot .meta { font-size: .8rem; color: var(--muted); }
+.slot.late .meta { color: var(--late); font-weight: 600; }
+.slot.done .title { text-decoration: line-through; color: var(--muted); }
+.slot input[type="time"] {
+  font: inherit;
+  font-size: .9rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+
+.hist-row { display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: .9rem; }
+.hist-row:last-child { border-bottom: 0; }
+.hist-row .accs { color: var(--muted); text-align: right; }
+.empty { color: var(--muted); font-size: .9rem; margin: 0; }
+
+label { display: block; font-weight: 600; margin: 12px 0 6px; font-size: .9rem; }
+dialog input {
+  width: 100%;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+}
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.hint { color: var(--muted); font-size: .8rem; margin: 6px 0 0; }
+dialog {
+  width: min(92vw, 480px);
+  border: 0;
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--text);
+  padding: 20px;
+}
+dialog::backdrop { background: rgba(0,0,0,.5); }
